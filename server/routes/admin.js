@@ -30,7 +30,7 @@ router.get("/login", (req, res) => {
   res.render("admin/login", { locals });
 });
 
-router.get("/register", (req, res) => {
+router.get("/register",authMiddleware, (req, res) => {
   const locals = {
     title: "Register",
     description: "This is the home page",

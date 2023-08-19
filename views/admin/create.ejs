@@ -3,11 +3,11 @@
   <form action="/create" method="POST">
     <div>
       <label for="title">Blog Title</label>
-      <input type="text" name="title" id="title" />
+      <input type="text" name="title" id="title" required />
     </div>
     <div>
       <label for="body">Blog Body</label>
-      <textarea name="body" id="body" cols="30" rows="10"></textarea>
+      <textarea name="body" id="body" cols="30" rows="10" required></textarea>
     </div>
 
     <button type="submit">Create Blog</button>

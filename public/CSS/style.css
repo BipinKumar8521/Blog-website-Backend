@@ -383,3 +383,25 @@ footer {
   height: 20vh;
   width: 100%;
 }
+
+/* Responsiveness code*/
+@media screen and (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 2rem;
+  }
+  .welcome-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .welcome-text p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: justify;
+  }
+}
