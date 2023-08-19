@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <script src="/JS/script.js" defer></script>
+    <title><%= locals.title %></title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header"><%- include('../partials/header') %></header>
+      <main class="main"><%- body %></main>
+      <footer class="footer"><%- include('../partials/footer') %></footer>
+    </div>
+  </body>
+</html>

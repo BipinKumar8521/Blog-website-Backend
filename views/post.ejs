@@ -1,0 +1,12 @@
+<div class="blog-details">
+  <h1><%= data.title %></h1>
+
+  <article>
+    <p><%= data.body %></p>
+    <p class="create-date"><%= data.createdAt.toDateString() %></p>
+  </article>
+
+  <a class="back-btn" href="/blogs"
+    ><i class="back-arrow">&larr;</i> Back to all posts</a
+  >
+</div>

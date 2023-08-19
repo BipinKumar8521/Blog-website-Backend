@@ -1,0 +1,13 @@
+<div class="posts">
+  <h3>Posts</h3>
+  <ul>
+    <% data.forEach(post => { %>
+    <li>
+      <a class="post-links" href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span><%= post.createdAt.toDateString()%></span>
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+</div>
