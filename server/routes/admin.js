@@ -80,7 +80,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/dashboard",authMiddleware, async (req, res) => {
+router.get("/dashboard", authMiddleware, async (req, res) => {
   const locals = {
     title: "Dashboard",
     description: "This is the home page",
@@ -94,7 +94,7 @@ router.get("/dashboard",authMiddleware, async (req, res) => {
   }
 });
 
-router.get("/create",authMiddleware, (req, res) => {
+router.get("/create", authMiddleware, (req, res) => {
   const locals = {
     title: "Create",
     description: "This is the home page",
@@ -102,7 +102,7 @@ router.get("/create",authMiddleware, (req, res) => {
   res.render("admin/create", { locals, layout: adminLayout });
 });
 
-router.get("/edit/:id",authMiddleware, async (req, res) => {
+router.get("/edit/:id", authMiddleware, async (req, res) => {
   try {
     const locals = {
       title: "Edit Post",
@@ -124,6 +124,7 @@ router.put("/edit/:id", authMiddleware, async (req, res) => {
       {
         title,
         body,
+        updatedAt: Date.now(),
       }
     );
     res.redirect("/dashboard");
@@ -132,12 +133,12 @@ router.put("/edit/:id", authMiddleware, async (req, res) => {
   }
 });
 
-router.delete("/delete/:id",authMiddleware, async (req, res) => {
+router.delete("/delete/:id", authMiddleware, async (req, res) => {
   await Post.findByIdAndDelete({ _id: req.params.id });
   res.redirect("/dashboard");
 });
 
-router.post("/create",authMiddleware, async (req, res) => {
+router.post("/create", authMiddleware, async (req, res) => {
   try {
     const { title, body } = req.body;
     console.log(req.body);
@@ -151,6 +152,11 @@ router.post("/create",authMiddleware, async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  res.redirect("/login");
 });
 
 module.exports = router;
